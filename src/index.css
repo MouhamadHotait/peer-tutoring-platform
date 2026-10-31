@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+/* Dark mode turns on when the <html> tag has the class "dark" */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Null & Void theme: Frutiger Aero */
+@theme {
+  --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* Brand: aqua / sky blue */
+  --color-brand-50: #ecfbff;
+  --color-brand-100: #cff4fe;
+  --color-brand-200: #a5e8fc;
+  --color-brand-300: #67d6f8;
+  --color-brand-400: #22bdee;
+  --color-brand-500: #08a0d4;
+  --color-brand-600: #0a80b2;
+  --color-brand-700: #106690;
+  --color-brand-800: #155476;
+  --color-brand-900: #164664;
+
+  /* Accent: fresh leaf green */
+  --color-accent-300: #a3e66a;
+  --color-accent-400: #7dd33f;
+  --color-accent-500: #5cb82a;
+  --color-accent-600: #46921f;
+}

@@ -8,9 +8,12 @@ import MySessions from './pages/MySessions'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
+    <>
+      <Navbar />
     <main className="min-h-screen p-8">
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,6 +28,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
+    </>
   )
 }
 
