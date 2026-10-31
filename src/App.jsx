@@ -12,9 +12,9 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen bg-linear-to-b from-brand-100 to-white text-gray-900 dark:from-slate-900 dark:to-brand-900 dark:text-gray-100">
       <Navbar />
-    <main className="min-h-screen p-8">
+    <main className="mx-auto max-w-6xl p-4">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sessions" element={<SessionList />} />
@@ -28,7 +28,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
-    </>
+    </div>
   )
 }
 

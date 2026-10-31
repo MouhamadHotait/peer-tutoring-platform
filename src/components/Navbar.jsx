@@ -1,39 +1,41 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 
 function Navbar() {
-  // Remembers whether the mobile menu is open
   const [isOpen, setIsOpen] = useState(false)
-
-  // Closes the menu after clicking a link (on mobile)
   const closeMenu = () => setIsOpen(false)
 
   const linkClass = ({ isActive }) =>
-    isActive ? 'font-semibold text-brand-600' : 'text-gray-700 hover:text-brand-600'
+    isActive
+      ? 'font-semibold text-brand-600 dark:text-brand-300'
+      : 'text-gray-700 hover:text-brand-600 dark:text-gray-200 dark:hover:text-brand-300'
 
   return (
-    <header className="border-b bg-white">
+    <header className="border-b border-white/50 bg-white/70 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/70">
       <nav
         className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-3"
         aria-label="Main navigation"
       >
-        <Link to="/" onClick={closeMenu} className="text-xl font-bold text-brand-600">
+        <Link to="/" onClick={closeMenu} className="text-xl font-bold text-brand-600 dark:text-brand-300">
           Null & Void
         </Link>
 
-        {/* Menu button: only visible on phones (hidden from md: up) */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="rounded-lg p-2 text-2xl text-gray-700 md:hidden"
-          aria-expanded={isOpen}
-          aria-controls="main-menu"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isOpen ? '✕' : '☰'}
-        </button>
+        {/* Theme toggle + menu button (on desktop, moved after the links) */}
+        <div className="flex items-center gap-2 md:order-last">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="rounded-lg p-2 text-2xl text-gray-700 md:hidden dark:text-gray-200"
+            aria-expanded={isOpen}
+            aria-controls="main-menu"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? '✕' : '☰'}
+          </button>
+        </div>
 
-        {/* Links: column on phones when open, always a row from md: up */}
         <ul
           id="main-menu"
           className={`${isOpen ? 'flex' : 'hidden'} w-full flex-col gap-4 pt-4 md:flex md:w-auto md:flex-row md:gap-6 md:pt-0`}
