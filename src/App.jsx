@@ -9,7 +9,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
-
 function App() {
   return (
     <div className="min-h-screen bg-linear-to-b from-brand-100 to-white text-gray-900 dark:from-slate-900 dark:to-brand-900 dark:text-gray-100">
