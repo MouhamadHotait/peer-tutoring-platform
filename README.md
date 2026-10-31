@@ -1,16 +1,74 @@
-# React + Vite
+# Null & Void – Peer Tutoring & Study Groups
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CSC443 – Web Programming, Fall 2026 – Project Phase 1 (Frontend)
 
-Currently, two official plugins are available:
+**Live site:** https://peer-tutoring-platform-five.vercel.app/
+**Repository:** https://github.com/MouhamadHotait/Peer-Tutoring-Platform
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Team
 
-## React Compiler
+- Mouhamad K. Hotait (team leader)
+- Talal A. Jaafar
+- Mohamad A. Moubarak
+- Jad A. Yazbek
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Topic and Entities
 
-## Expanding the ESLint configuration
+Students offer tutoring or open study sessions for specific courses, and other students join them.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Sessions:** tutoring or study-group sessions for a course
+- **Courses:** university courses the sessions are about
+- **Tutors / Users:** students who host or join sessions (a tutor is a user who hosts sessions)
+
+## Tech Stack
+
+React (Vite), React Router, Tailwind CSS, Git & GitHub, deployed on Vercel.
+
+## Run Locally
+
+Requirements: Node.js and Git.
+
+```bash
+git clone https://github.com/MouhamadHotait/Peer-Tutoring-Platform.git
+cd Peer-Tutoring-Platform
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173
+
+Demo account: `demo@lau.edu` / `demo1234`
+
+## Pages and Contributions
+
+| Member | Pages | Branch |
+|---|---|---|
+| Hotait | Homepage, Session List | `feature/home-session-list` |
+| Jaafar | Session Details, Tutor Profile | `feature/details-tutor-profile` |
+| Moubarak | Create/Edit Session, My Sessions | `feature/session-form-dashboard` |
+| Yazbek | Login, Register | `feature/login-register` |
+
+Hotait also built the project setup, routing, navbar, theme toggle, mock data, data contexts, shared components, and deployment.
+
+## How Mock Data Works
+
+There is no backend in Phase 1. All data starts in `src/data/mockData.js` (courses, users, sessions). Two React contexts load this data into state and share it with every page:
+
+- `SessionsContext`: create, edit, delete, join, and leave sessions
+- `AuthContext`: login, register, logout, and the current user
+
+Changes appear immediately across the app but reset when the page is refreshed. In Phase 2, these context functions will call the backend instead.
+
+## Team Rules
+
+- Never push to `main`. Work on your branch and open a pull request; the leader reviews and merges.
+- Only edit your own page files and components you create. Ask the leader before changing shared files (`App.jsx`, `Navbar`, `context/`, `data/`, `index.css`).
+- Pages never import `mockData.js` directly: use `useSessions()` and `useAuth()`.
+- Use the shared `Button` and `Input` components and the theme colors (`brand-...`, `accent-...`).
+- Mobile-first: phone styles first, then `md:` and `lg:`. Add `dark:` classes. Test on phone, iPad, and laptop sizes before a pull request.
+- Every input has a label, every image has alt text.
+- Small commits with clear messages.
+
+## Screenshots
+
+_Coming soon._
